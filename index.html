@@ -1,119 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your Name – Building for the web</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#fafafb;--ink:#14171f;--muted:#5b6270;--line:#e3e5ea;--accent:#2f49e6;--accent-ink:#fff;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101218;--ink:#eceef3;--muted:#98a0b0;--line:#252a35;--accent:#7f92ff;--accent-ink:#101218}}
-:root[data-theme="dark"]{--bg:#101218;--ink:#eceef3;--muted:#98a0b0;--line:#252a35;--accent:#7f92ff;--accent-ink:#101218}
-html{scroll-padding-top:env(safe-area-inset-top,0px)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 "Hanken Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-main,header,footer{max-width:680px;margin:0 auto;padding:0 24px}
-header{display:flex;justify-content:space-between;align-items:center;padding-top:28px;padding-bottom:8px}
-header a.brand{font-weight:700;color:var(--ink);text-decoration:none}
-nav{display:flex;gap:20px}
-nav a{color:var(--muted);text-decoration:none;font-size:15px}
-nav a:hover{color:var(--ink)}
-a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-h1{font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.08;letter-spacing:-.03em;font-weight:700;margin:88px 0 24px}
-h2{font-size:1.25rem;letter-spacing:-.01em;margin:0 0 20px}
-p{margin:0 0 16px;max-width:60ch}
-.lead{font-size:1.2rem;color:var(--muted)}
-.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);padding:11px 20px;border-radius:8px;text-decoration:none;font-weight:500;margin-top:12px}
-.btn:hover{opacity:.9}
-section{padding:72px 0 0}
-.rows{border-top:1px solid var(--line)}
-.row{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
-.row b{font-weight:500}
-.row span{color:var(--muted);font-size:15px;text-align:right}
-.bar{height:4px;background:var(--line);border-radius:2px;margin:0 0 8px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s ease}
-.count{color:var(--muted);font-size:15px;margin-bottom:12px}
-.steps{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.steps label{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
-.steps input{margin-top:6px;width:18px;height:18px;accent-color:var(--accent);flex:none}
-.steps small{display:block;color:var(--muted);font-size:15px;line-height:1.5}
-.steps input:checked + span b{text-decoration:line-through;color:var(--muted)}
-footer{padding-top:72px;padding-bottom:48px;color:var(--muted);font-size:14px}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Your Name</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 0 20px;
+      line-height: 1.6;
+      color: #14171f;
+    }
+    a { color: #2f49e6; }
+    h1 { font-size: 2.2rem; }
+  </style>
 </head>
 <body>
-<header>
-  <a class="brand" href="#top">Your Name</a>
-  <nav><a href="#work">Work</a><a href="#learning">Learning</a><a href="#contact">Contact</a></nav>
-</header>
-<main id="top">
-  <h1>I'm learning to build and ship full-stack web apps.</h1>
-  <p class="lead">Hi, I'm Your Name. This site is my first project: written by hand, deployed to the internet, and improved a little every week.</p>
-  <a class="btn" href="#contact">Say hello</a>
-
-  <section id="work">
-    <h2>Projects</h2>
-    <div class="rows">
-      <div class="row"><b>This website</b><span>HTML, CSS, JavaScript</span></div>
-      <div class="row"><b>Your next project</b><span>Replace me</span></div>
-      <div class="row"><b>Another idea</b><span>Replace me</span></div>
-    </div>
-  </section>
-
-  <section id="learning">
-    <h2>My full-stack roadmap</h2>
-    <p>Tick off each step as I finish it. Your progress is saved in this browser.</p>
-    <div class="bar" aria-hidden="true"><i id="fill"></i></div>
-    <div class="count" id="count" aria-live="polite"></div>
-    <ul class="steps" id="steps"></ul>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Have a project, a question, or advice for a beginner? I'd like to hear it.</p>
-    <a class="btn" href="mailto:you@example.com">Email me</a>
-  </section>
-</main>
-<footer>© <span id="yr"></span> Your Name. Built by hand.</footer>
-
-<script>
-const steps=[
-  ["Learn HTML and CSS","Structure and style a page like this one."],
-  ["Learn JavaScript basics","Variables, functions, the DOM, and events."],
-  ["Use Git and GitHub","Save your work and put it online."],
-  ["Deploy a static site","Publish this page on Netlify, Vercel, or GitHub Pages."],
-  ["Build a backend API","Node.js with Express, or Python with FastAPI."],
-  ["Add a database","Start with PostgreSQL or SQLite."],
-  ["Add user login","Sign-up, sessions, and keeping data safe."],
-  ["Deploy the full app","Backend, database, and frontend live together."]
-];
-const KEY="roadmap-done";
-let done=[];
-try{done=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){done=[]}
-const ul=document.getElementById("steps");
-steps.forEach((s,i)=>{
-  const li=document.createElement("li");
-  li.innerHTML='<label><input type="checkbox"><span><b></b><small></small></span></label>';
-  li.querySelector("b").textContent=s[0];
-  li.querySelector("small").textContent=s[1];
-  const cb=li.querySelector("input");
-  cb.checked=done.includes(i);
-  cb.addEventListener("change",()=>{
-    done=cb.checked?[...new Set([...done,i])]:done.filter(n=>n!==i);
-    try{localStorage.setItem(KEY,JSON.stringify(done))}catch(e){}
-    update();
-  });
-  ul.appendChild(li);
-});
-function update(){
-  document.getElementById("fill").style.width=(done.length/steps.length*100)+"%";
-  document.getElementById("count").textContent=done.length+" of "+steps.length+" steps done";
-}
-update();
-document.getElementById("yr").textContent=new Date().getFullYear();
-</script>
+ 
+  <h1>Hi, I'm Your Name</h1>
+  <p>I'm learning to build and ship full-stack web apps.</p>
+ 
+  <h2>Projects</h2>
+  <ul>
+    <li>This website</li>
+    <li>Your next project</li>
+  </ul>
+ 
+  <h2>Contact</h2>
+  <p><a href="mailto:you@example.com">you@example.com</a></p>
+ 
 </body>
 </html>
